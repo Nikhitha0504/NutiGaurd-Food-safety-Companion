@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-center">Your Health Profile</h2>
+                <p class="text-center text-muted">This information helps us provide personalized ingredient analysis.</p>
+                <form method="POST" action="">
+                    {{ form.hidden_tag() }}
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            {{ form.name.label(class="form-label") }}
+                            {{ form.name(class="form-control") }}
+                        </div>
+                        <div class="col-md-3">
+                            {{ form.age.label(class="form-label") }}
+                            {{ form.age(class="form-control") }}
+                        </div>
+                        <div class="col-md-3">
+                            {{ form.gender.label(class="form-label") }}
+                            {{ form.gender(class="form-control") }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form.height.label(class="form-label") }}
+                            {{ form.height(class="form-control") }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form.weight.label(class="form-label") }}
+                            {{ form.weight(class="form-control") }}
+                        </div>
+                        <div class="col-12">
+                            {{ form.dietary_preferences.label(class="form-label") }}
+                            {{ form.dietary_preferences(class="form-control") }}
+                        </div>
+                        <div class="col-12">
+                            {{ form.allergies.label(class="form-label") }}
+                            {{ form.allergies(class="form-control", rows=3) }}
+                        </div>
+                        <div class="col-12">
+                            {{ form.medical_conditions.label(class="form-label") }}
+                            {{ form.medical_conditions(class="form-control", rows=3) }}
+                        </div>
+                        <div class="col-12">
+                            {{ form.lifestyle_habits.label(class="form-label") }}
+                            {{ form.lifestyle_habits(class="form-control", rows=3) }}
+                        </div>
+                    </div>
+                    <div class="d-grid mt-4">
+                        {{ form.submit(class="btn btn-primary") }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container my-5">
+
+    {% if current_user.is_authenticated %}
+
+    {#-- Content for Logged-In Users --#}
+    <div class="text-center mb-5">
+        <h1>Ingredient Safety Analyzer</h1>
+        <p class="lead">Upload an image of an ingredient list or paste the text to get an instant safety analysis based on your health profile.</p>
+    </div>
+
+    <div class="row g-4">
+        <!-- Image Upload Column -->
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Scan Ingredient List from Image</h5>
+                    <form id="upload-form">
+                        <div class="mb-3">
+                            <label for="file-input" class="form-label">Select an image file:</label>
+                            <input class="form-control" type="file" id="file-input" accept="image/*" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100" id="upload-btn">
+                            <span id="upload-spinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            Analyze Image
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Text Input Column -->
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Analyze Ingredients from Text</h5>
+                    <form id="text-form">
+                        <div class="mb-3">
+                            <label for="text-input" class="form-label">Paste ingredients here:</label>
+                            <textarea class="form-control" id="text-input" rows="5" placeholder="e.g., Enriched flour, high fructose corn syrup, palm oil, salt, artificial colors..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-secondary w-100" id="text-btn">
+                            <span id="text-spinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            Analyze Text
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Section -->
+    <div id="results-container" class="mt-5 d-none">
+        <div class="card">
+            <div class="card-header">
+                <h3>Analysis Results</h3>
+            </div>
+            <div class="card-body">
+                <div id="error-alert" class="alert alert-danger d-none"></div>
+                <div id="results-content"></div>
+            </div>
+        </div>
+    </div>
+
+    {% else %}
+
+    {#-- Content for Logged-Out Users (Hero Section) --#}
+    <div class="hero-section">
+        <h1 class="display-4">Understand Your Food.</h1>
+        <p class="lead my-4">Take control of your health. Our AI-powered analyzer scans food labels and gives you a personalized safety report in seconds. Know what you're eating, and make smarter choices for your body.</p>
+        <a href="{{ url_for('main.login') }}" class="btn btn-primary btn-lg">Analyze Your Food Product</a>
+    </div>
+
+    {% endif %}
+
+</div>
+{% endblock %}
