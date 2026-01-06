@@ -1,5 +1,6 @@
 
-# AI-Powered Ingredient Safety Analyzer
+# NutiGaurd-Food-safety-Companion
+NutriGuard is an AI-powered web app that analyzes packaged food ingredients using OCR and machine learning to provide personalized food safety insights based on user health conditions, allergies, and dietary preferences
 
 This web application provides a personalized analysis of food and medicine ingredients. Users can upload an image of an ingredient list or paste the text directly to receive an instant safety report tailored to their individual health profile. The application uses OCR to extract text from images and Google's Gemini API for a comprehensive, AI-powered analysis.
 
@@ -79,6 +80,4 @@ Follow these instructions to set up and run the application on your local machin
     - **By Text:** Copy and paste the ingredients into the text box.
 4.  **View the Results:** The application will provide a detailed analysis, including a safety score, a list of harmful ingredients, and personalized recommendations.
 =======
-# NutiGaurd-Food-safety-Companion
-NutriGuard is an AI-powered web app that analyzes packaged food ingredients using OCR and machine learning to provide personalized food safety insights based on user health conditions, allergies, and dietary preferences.
 
